@@ -11,3 +11,12 @@ provider "aws" {
   # Configuration options
   region = "us-east-1"
 }
+
+terraform {
+  backend "s3" {
+    bucket = "roboshop-remote-state27"
+    key    = "RemoteState-Demo"
+    region = "us-east-1"
+    dynamodb_table = "Roboshop-Lock"
+  }
+}
